@@ -23,5 +23,13 @@ describe('streetfighter-moves', function() {
       var randomMove = StreetFighter.random();
       expect(StreetFighter.all).to.include(randomMove);
     });
+
+    it('should return an array of random items if passed a number', function() {
+      var randomMoves = StreetFighter.random(2);
+      expect(randomMoves).to.have.length(2);
+      randomMoves.forEach(function(move) {
+        expect(StreetFighter.all).to.include(move);
+      });
+    });
   });
 });
